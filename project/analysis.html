@@ -1,0 +1,148 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Text Analysis Project - Robert Fleek">
+    <title>Text Analysis - Robert Fleek</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav"><a href="index.html">Home</a></li>
+        <li class="nav"><a href="projects.html">Projects</a></li>
+        <li class="nav"><a href="resume.html">Resume</a></li>
+        <li class="nav"><a href="contact.html">Contact Info</a></li>
+        <li class="nav"><a href="text-analysis.html">Text Analysis</a></li>
+    </ul>
+
+    <div class="container">
+        <h1>Text Analysis - Dorian Gray Encoding</h1>
+
+        <p>This analysis focuses on Chapters 2 and 3 of *The Picture of Dorian Gray* by Oscar Wilde. I encoded the text using XML to distinguish between characters, speech, and descriptions, then used Voyant Tools to explore patterns and language usage across the text.</p>
+
+        <h2>Final Project Analysis</h2>
+               <p>
+                   Over the course of this project, I’ve gained a deeper understanding of my chosen texts through the dual processes of text encoding and digital analysis using Voyant Tools. By breaking the text into structured XML markup and examining its linguistic patterns through Voyant, I was able to analyze both the content and form in new ways. This analysis not only revealed character dynamics and thematic elements but also showcased how encoding decisions can shape digital literary interpretation.
+               </p>
+
+               <h3>Encoding Process: Structure and Insight</h3>
+               <p>
+                   Encoding my texts using XML was an eye-opening experience. It forced me to slow down and examine the structure of each passage closely.
+                   I chose to focus on dialogue-heavy scenes from <em>The Picture of Dorian Gray</em>, particularly Chapters 2 and 3, where Lord Henry’s influence over Dorian becomes more pronounced.
+               </p>
+
+       <pre><code class="xml">&lt;paragraph&gt;
+           &lt;dialogue&gt;
+               &lt;character&gt;Lord Henry&lt;/character&gt;
+               &lt;speech&gt;All right, Uncle George, I’ll tell her, but it won’t have any effect.
+               Philanthropic people lose all sense of humanity. It is their distinguishing characteristic.&lt;/speech&gt;
+           &lt;/dialogue&gt;
+       &lt;/paragraph&gt;</code></pre>
+
+               <p>
+                   This format helped me isolate who was speaking and what was being said. It also allowed for easier analysis of character interaction patterns.
+                   By tagging each paragraph and speech element, I could track how often characters spoke and how their dialogue evolved over the course of the chapters.
+               </p>
+
+               <p>
+                   One pattern I noticed was how frequently Lord Henry spoke compared to others. By isolating his <code>&lt;character&gt;</code> tags, I could quickly count his dominance in the text.
+                   I also noticed his tendency to speak in witty generalizations, which plays into his role as a philosophical provocateur. For example:
+               </p>
+
+       <pre><code class="xml">&lt;speech&gt;Philanthropic people lose all sense of humanity.
+       It is their distinguishing characteristic.&lt;/speech&gt;</code></pre>
+
+               <p>
+                   This kind of encoded content can later be queried or analyzed with a script to pull all of Lord Henry’s philosophical lines,
+                   showing how encoding enables targeted literary analysis.
+               </p>
+               <h3>Voyant Analysis: Word Frequencies and Themes</h3>
+      <p>
+          After encoding, I uploaded my texts into Voyant Tools and began exploring patterns through its built-in visualizations.
+          The Terms tool helped me identify the most frequently used words across both chapters.
+          Unsurprisingly, words like <strong>"Lord," "Henry,"</strong> and <strong>"Dorian"</strong> were among the top results, reinforcing the centrality of their relationship.
+      </p>
+
+      <p><strong>Figure 1:</strong> Word cloud showing dominant terms in Chapters 2 and 3.</p>
+
+      <iframe style="width: 850px; height: 688px;" src="https://voyant-tools.org/tool/Cirrus/?corpus=159595ac148843fd104c986de439947c"></iframe>
+
+      <p>
+          Beyond basic frequency, Voyant’s <strong>Cirrus</strong> tool showed me which words frequently appeared near “Dorian.”
+          Terms like <em>youth</em> clustered around his name, suggesting how Wilde positions Dorian as a character full of potential, poised to be molded.
+      </p>
+
+      <p>
+          Voyant also revealed something I hadn’t noticed before: the use of the word “soul” spikes toward the end of Chapter 3.
+          This discovery led me to explore the philosophical themes embedded in Lord Henry’s monologues.
+          Through Voyant’s <strong>Trends</strong> tool, I charted how abstract concepts like “beauty,” “soul,” and “pleasure” fluctuated throughout the chapters.
+      </p>
+
+      <p><strong>Figure 2:</strong> Frequency trends of key terms across chapter 2.</p>
+      <iframe style="width: 850px; height: 688px;" src="https://voyant-tools.org/?corpus=159595ac148843fd104c986de439947c&query=gray&query=lord&query=henry&query=dorian&query=don%E2%80%99t&mode=document&view=Trends"></iframe>
+      <h3>Reader Tool</h3>
+      <iframe style='width: 850px; height: 688px;' src='https://voyant-tools.org/?corpus=159595ac148843fd104c986de439947c&skipToDocId=1afcaa1ded7262ccd8ec4b0914e3c9a5&view=Reader'></iframe>
+
+      <p>The Reader tool allows for deeper inspection of individual words in their sentence-level context. For instance, the word “Dorian” is often paired with admiration or concern, while “Lord Henry” uses persuasive language and rhetorical questions.</p>
+
+      <h3>Combining Encoding and Voyant</h3>
+      <p>
+          What became especially powerful was combining insights from both methods.
+          Encoding helped me tag who was speaking and when; Voyant helped me analyze what they were saying and how often certain ideas recurred.
+          For example, I encoded this passage:
+      </p>
+
+<pre><code class="xml">&lt;dialogue&gt;
+  &lt;character&gt;Lord Henry&lt;/character&gt;
+  &lt;speech&gt;I always like to know everything about my new friends, and nothing about my old ones.&lt;/speech&gt;
+&lt;/dialogue&gt;</code></pre>
+
+      <p>
+          In Voyant, I noticed the word “new” came up more frequently than “old,” particularly in Henry’s speeches.
+          This supported a theme of novelty and aesthetic obsession that runs through Wilde’s philosophy in the novel.
+          Encoding highlighted the structure, and Voyant confirmed patterns of content.
+      </p>
+
+      <p>
+          I also discovered that Lord Henry’s speeches were significantly longer than other characters’.
+          Encoding revealed this through block-length comparisons, and Voyant backed it up by showing his dominance in word frequency.
+          This shows not only his role in the narrative but how Wilde uses his verbosity to overwhelm Dorian with ideas.
+      </p>
+
+      <h3>Challenges and Observations</h3>
+      <p>
+          One challenge I faced was deciding how to encode interruptions or non-verbal elements.
+          For instance, some descriptions were embedded between pieces of dialogue, and I had to choose whether they belonged in <code>&lt;description&gt;</code> tags or if they were part of the <code>&lt;speech&gt;</code>.
+          Here’s an example where I used a <code>&lt;description&gt;</code> tag:
+      </p>
+
+<pre><code class="xml">&lt;paragraph&gt;
+  &lt;description&gt;The old gentleman growled approvingly and rang the bell for his servant.&lt;/description&gt;
+&lt;/paragraph&gt;</code></pre>
+
+      <p>
+          These small decisions made me realize how much interpretation goes into digital humanities work.
+          Every encoding choice affects how future tools or researchers can interact with the text.
+      </p>
+
+      <h3>Conclusion</h3>
+      <p>
+          This project helped me see texts as both literary works and structured data.
+          Encoding helped me understand the roles and interactions of characters more clearly, while Voyant showed me macro-level trends and themes.
+          Together, they revealed not only who speaks the most, but what they speak about and how those words reflect deeper themes in Wilde’s writing.
+      </p>
+
+      <p>
+          By combining both close and distant reading methods, I came away with a richer interpretation of the text than I would have through traditional reading alone.
+          I now understand how digital tools can complement human analysis, offering new ways to see and understand literature.
+      </p>
+        <h3>Download or Explore</h3>
+        <ul>
+            <li><a href="https://voyant-tools.org/?corpus=159595ac148843fd104c986de439947c" target="_blank">View the Full Corpus in Voyant</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><a href="index.html">Return to Home Page</a></p>
+        </div>
+    </div>
+</body>
+</html>
