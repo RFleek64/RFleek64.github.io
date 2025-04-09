@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Text Analysis Project - DIGIT100">
+    <title>Text Analysis - Robert Fleek</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav"><a href="index.html">Home</a></li>
+        <li class="nav"><a href="projects.html">Projects</a></li>
+        <li class="nav"><a href="resume.html">Resume</a></li>
+        <li class="nav"><a href="contact.html">Contact Info</a></li>
+        <li class="nav"><a href="text-analysis.html">Text Analysis</a></li>
+    </ul>
+
+    <div class="container">
+        <h1>Text Analysis Project</h1>
+
+        <h2>Overview</h2>
+        <p>For this project, I explored Chapters 2 and 3 of <em>The Picture of Dorian Gray</em> through a combination of XML text encoding and digital tools like Voyant. This analysis allowed me to examine character dialogue patterns, word frequency, and deeper narrative structure.</p>
+
+        <h2>Encoding Process</h2>
+        <p>Below is a sample of my TEI-style XML encoding, where I tagged character speech and descriptions:</p>
+
+        <pre><code>&lt;paragraph&gt;
+    &lt;dialogue&gt;
+        &lt;character&gt;Lord Henry&lt;/character&gt;
+        &lt;speech&gt;At Aunt Agatha&rsquo;s. I have asked myself and Mr. Gray. He is her latest _prot&eacute;g&eacute;_.&lt;/speech&gt;
+    &lt;/dialogue&gt;
+&lt;/paragraph&gt;</code></pre>
+
+        <p>By encoding each line of dialogue with speaker tags, I could later analyze which characters spoke the most and how the tone of their speech changed over time.</p>
+
+        <h2>Voyant Tools Analysis</h2>
+        <p>Using Voyant, I was able to visualize key data points from my text, including:</p>
+        <ul>
+            <li>Most frequent words</li>
+            <li>Trends in word usage across chapters</li>
+            <li>Character focus and central themes</li>
+        </ul>
+
+        <h3>Word Frequency</h3>
+        <img src="voyant-word-frequency.png" alt="Word Frequency Chart from Voyant" class="analysis-img">
+        <p>This visualization shows that words like “Henry,” “Lord,” and “Gray” were among the most frequent, showing a strong focus on dialogue between central characters.</p>
+
+        <h3>Contextual Insights</h3>
+        <img src="voyant-contexts.png" alt="Voyant Contexts Tool" class="analysis-img">
+        <p>The Contexts tool helped me understand how specific words were used in different ways depending on who was speaking, especially terms related to morality and beauty.</p>
+
+        <h2>Conclusions</h2>
+        <p>By combining manual encoding with Voyant's data-driven tools, I gained a deeper understanding of Oscar Wilde’s narrative techniques, especially the contrasting philosophies of Lord Henry and others in the novel. Encoding also made me more aware of structure, while Voyant gave me insights into trends I might have missed through reading alone.</p>
+
+        <h2>Download or Explore My Corpus</h2>
+        <p>Click below to download the encoded text or explore it in Voyant:</p>
+        <ul>
+            <li><a href="dorian-ch2-ch3.xml" download>Download Encoded Text</a></li>
+            <li><a href="https://voyant-tools.org/?corpus=your-corpus-id" target="_blank">View in Voyant Reader</a></li>
+        </ul>
+
+        <div class="footer">
+            <p>Return to the <a href="index.html">home page</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
