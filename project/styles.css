@@ -1,0 +1,170 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and font styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 15px 0;
+}
+
+/* Navigation styling */
+.nav {
+    list-style: none;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+/* Layout styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.intro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.projects h2, .hobbies h2, .upcoming-projects h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.projects img, .upcoming-projects img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
+
+/* Footer and return link */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Hobbies Section */
+.hobbies {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.hobbies p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Image styling */
+.profile-img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+/* Projects Section */
+.projects {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.upcoming-projects {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.upcoming-projects h3 {
+    font-size: 1.3rem;
+    color: #4CAF50;
+}
+
+/* Profile Section */
+.profile-text {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.profile-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+}

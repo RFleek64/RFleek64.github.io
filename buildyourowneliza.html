@@ -1,0 +1,177 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eliza Chatbot - Interactive Experience">
+    <title>Eliza Chatbot - Robert Fleek's Digital Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="elizabot.js"></script>
+    <script src="elizadata.js"></script>
+
+    <script type="text/javascript">
+        var eliza = new ElizaBot();
+        var elizaLines = [];
+        var displayCols = 60;
+        var displayRows = 20;
+
+        function elizaReset() {
+            eliza.reset();
+            elizaLines.length = 0;
+            elizaStep();
+        }
+
+        function elizaStep() {
+            var f = document.forms.e_form;
+            var userinput = f.e_input.value;
+            if (eliza.quit) {
+                f.e_input.value = '';
+                if (confirm("This session is over.\nStart over?")) elizaReset();
+                f.e_input.focus();
+                return;
+            } else if (userinput != '') {
+                var usr = 'YOU:   ' + userinput;
+                var rpl = 'ELIZA: ' + eliza.transform(userinput);
+                elizaLines.push(usr);
+                elizaLines.push(rpl);
+                var temp = [];
+                var l = 0;
+                for (var i = elizaLines.length - 1; i >= 0; i--) {
+                    l += 1 + Math.floor(elizaLines[i].length / displayCols);
+                    if (l >= displayRows) break;
+                    else temp.push(elizaLines[i]);
+                }
+                elizaLines = temp.reverse();
+                f.e_display.value = elizaLines.join('\n');
+            } else if (elizaLines.length == 0) {
+                var initial = 'ELIZA: ' + eliza.getInitial();
+                elizaLines.push(initial);
+                f.e_display.value = initial + '\n';
+            }
+            f.e_input.value = '';
+            f.e_input.focus();
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        textarea {
+            width: 90%;
+            height: 300px;
+            margin: 20px 0;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #007BFF;
+        }
+
+        /* Navigation Style */
+        .nav {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .nav li a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+
+<body onload="window.setTimeout('elizaReset()',100)">
+
+    <!-- Navigation Bar -->
+    <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="analysis.html">Text Analysis</a></li>
+        <li><a href="buildyourowneliza.html">Eliza Chatbot</a></li>
+    </ul>
+
+    <div class="container">
+        <h3>ELIZA Chatbot</h3>
+        <form name="e_form" onsubmit="elizaStep(); return false">
+            <textarea name="e_display" cols="60" rows="20" readonly></textarea>
+            <br>
+            <input type="text" name="e_input" size="50" placeholder="Type something...">
+            <input type="submit" value="Talk">
+            <input type="reset" value="Reset" onclick="window.setTimeout('elizaReset()',100)">
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>ELIZA is a natural language conversation program created by Joseph Weizenbaum in 1966.</p>
+        <p>For a terminal-like experience, visit the <a href="http://www.masswerk.at/elizabot/eliza.html" target="_blank">ELIZA-Terminal</a>.</p>
+        <p>Created by Norbert Landsteiner - <a href="http://www.masswerk.at/" target="_blank">masswerk.at</a></p>
+    </div>
+
+</body>
+</html>

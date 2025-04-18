@@ -1,0 +1,134 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliza Test</title>
+    <script language="JavaScript" type="text/javascript" src="elizabot.js"></script>
+    <script language="JavaScript" type="text/javascript" src="elizadata.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        // Initialize with argument 'true': no random choices
+        var eliza = new ElizaBot(true);
+
+        var exampleLines = [
+            "Men are all alike.",
+            "They're always bugging us about something or other.",
+            "Well, my boyfriend made me come here.",
+            "He says I'm depressed much of the time.",
+            "It's true. I am unhappy.",
+            "I need some help, that much seems certain.",
+            "Perhaps I could learn to get along with my mother.",
+            "My mother takes care of me.",
+            "My father.",
+            "You are like my father in some ways.",
+            "You are not very aggressive but I think you don't want me to notice that.",
+            "You don't argue with me.",
+            "You are afraid of me.",
+            "My father is afraid of everybody.",
+            "Bullies."
+        ];
+
+        var exampleCursor = 0;
+
+        function elizaReset() {
+            eliza.reset();
+            exampleCursor = 0;
+            document.forms.eform.edisplay.value = ''; // Clear the display
+            document.getElementById('stepDisplay').innerText = 'Step 1: Introduction';
+        }
+
+        function elizaNext() {
+            if (exampleCursor >= exampleLines.length) {
+                alert('Last entry reached.\nClick "Reset" to start over again.');
+                return;
+            }
+
+            var userInput = exampleLines[exampleCursor++];
+            document.forms.eform.edisplay.value += 'USER:  ' + userInput + '\n';
+            document.forms.eform.edisplay.value += 'ELIZA: ' + eliza.transform(userInput) + '\n';
+
+            // Update the step number
+            var currentStep = exampleCursor + 1;
+            document.getElementById('stepDisplay').innerText = `Step ${currentStep}: ` + (exampleCursor < exampleLines.length ? "Conversation" : "End of Conversation");
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 20px;
+        }
+        h3 {
+            color: #333;
+        }
+        textarea {
+            width: 80%;
+            height: 300px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        input[type="button"], input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #stepDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .info-section {
+            background-color: #e1f7d5;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Eliza Test - Wizard Interface</h3>
+
+        <div id="stepDisplay">Step 1: Introduction</div>
+
+        <form name="eform" onsubmit="return false">
+            <textarea name="edisplay" cols="80" rows="32" readonly></textarea><br>
+            <div class="buttons">
+                <input type="button" value="Next Step" onclick="elizaNext()">
+                <input type="reset" value="Reset" onclick="elizaReset(); return true">
+            </div>
+        </form>
+
+        <div class="info-section">
+            <p>This is a test application for the <a href="index.html">JavaScript library "elizabot.js"</a> (Norbert Landsteiner 2005). The test application follows the example given by Joseph Weizenbaum in his article on ELIZA from January 1966.</p>
+            <p>Click "Next Step" to see the next input and Eliza's answer. Click "Reset" to reset Eliza and start over.</p>
+        </div>
+
+        <div class="footer">
+            <p>References:</p>
+            <p>Weizenbaum, Joseph "ELIZA – A Computer Program For the Study of Natural Language Communication Between Man and Machine" in: Communications of the ACM; Volume 9 , Issue 1 (January 1966): p 36-45.</p>
+            <p>Visit <a href="http://www.masswerk.at" target="_blank">www.masswerk.at</a> for more info.</p>
+        </div>
+    </div>
+
+</body>
+</html>
